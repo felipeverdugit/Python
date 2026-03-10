@@ -14,7 +14,7 @@ import datetime
 def csv_to_shp(csv_file, output_shp, sr):
     # (csv-kolumn, shapefält, fälttyp, längd)
     field_defs = [
-        ("Pt name",   "Pt_name",   "LONG",   None),
+        ("Pt name",   "Pt_name",   "TEXT",   20),
         ("North",     "North",     "DOUBLE", None),
         ("East",      "East",      "DOUBLE", None),
         ("Elevation", "Elevation", "DOUBLE", None),
@@ -44,7 +44,7 @@ def csv_to_shp(csv_file, output_shp, sr):
                 try:
                     x         = float(row["East"])
                     y         = float(row["North"])
-                    pt_name   = int(row["Pt name"])
+                    pt_name   = row["Pt name"].strip()
                     north     = float(row["North"])
                     east      = float(row["East"])
                     elevation = float(row["Elevation"])
